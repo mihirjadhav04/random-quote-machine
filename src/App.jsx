@@ -12,7 +12,17 @@ function App() {
   useEffect(() => {
     fetchQuote();
   }, []);
-
+  /* SAMPLE RESPONSE DATA FROM API :
+    {
+      "_id":"9faWWZ4ITZrr",
+      "content":"What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+      "author":"Ralph Waldo Emerson",
+      "tags":["Famous Quotes"],
+      "authorSlug":"ralph-waldo-emerson",
+      "length":93,
+      "dateAdded":"2020-10-14",
+      "dateModified":"2023-04-14"4
+    }*/
   const fetchQuote = () => {
     fetch('https://api.quotable.io/random')
       .then(response => response.json())
