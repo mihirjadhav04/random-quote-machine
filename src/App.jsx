@@ -57,7 +57,7 @@ function App() {
   return (
     <div id="quote-box" className={`container-fluid d-flex justify-content-center align-items-center ${isTextVisible ? 'transition' : ''} ${isTransitioning ? 'transitioning' : ''}`} style={{ backgroundColor: bgColor, height: '100vh', width: '100vw' }}>
       <div className={`card p-4 comfortaa-quote ${ isTextVisible ? 'transition' : ''} ${isTransitioning ? 'transitioning' : ''}`} style={{ color: textColor, wordWrap: 'break-word', width: "600px",transition: 'color 0.5s, background-color 0.5s' }}>
-      <h1 style={{ fontFamily: 'monospace', fontWeight: 'bold'}}>Random Quote Machine</h1>
+      <h1 style={{ fontFamily: 'monospace', fontWeight: 'bold', color:"black"}}>Random Quote Machine</h1>
       <div style={{ borderTop: "1px solid black", width: "8%", marginBottom: "20px",marginTop:"10px", marginLeft:"47%" }}></div>
         <div id="text" className="mb-4">{quote}</div>
         <div id="author" className="text-center">- {author}</div>
