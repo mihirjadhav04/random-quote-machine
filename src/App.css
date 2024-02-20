@@ -18,5 +18,11 @@
 }
 
 .transition {
-  transition: opacity 5s ease-in-out;
+  transition: opacity 5s linear;
+}
+
+
+#author {
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
 }

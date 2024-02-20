@@ -8,6 +8,7 @@ function App() {
   const [textColor, setTextColor] = useState('#000000'); // default text color
   const [bgColor, setBgColor] = useState('#000000'); // default background color
   const [isTextVisible, setIsTextVisible] = useState(true); // to control text visibility
+  const [isTransitioning, setIsTransitioning] = useState(false); // to control transition effect
 
   useEffect(() => {
     fetchQuote();
@@ -30,6 +31,7 @@ function App() {
         setQuote(data.content);
         setAuthor(data.author);
         setIsTextVisible(true); // Show text after fetching new quote
+        setTimeout(() => setIsTransitioning(false), 500); // Turn off transition after 0.5s
       })
       .catch(error => console.error(error));
   };
@@ -53,15 +55,17 @@ function App() {
   };
 
   return (
-    <div id="quote-box" className={`container-fluid d-flex justify-content-center align-items-center ${isTextVisible ? 'transition' : ''}`} style={{ backgroundColor: bgColor, height: '100vh', width: '100vw' }}>
-      <div className={`card p-4 comfortaa-quote ${isTextVisible ? 'transition' : ''} }`} style={{ color: textColor, wordWrap: 'break-word', width: "600px" }}>
+    <div id="quote-box" className={`container-fluid d-flex justify-content-center align-items-center ${isTextVisible ? 'transition' : ''} ${isTransitioning ? 'transitioning' : ''}`} style={{ backgroundColor: bgColor, height: '100vh', width: '100vw' }}>
+      <div className={`card p-4 comfortaa-quote ${ isTextVisible ? 'transition' : ''} ${isTransitioning ? 'transitioning' : ''}`} style={{ color: textColor, wordWrap: 'break-word', width: "600px",transition: 'color 0.5s, background-color 0.5s' }}>
+      <h1 style={{ fontFamily: 'monospace', fontWeight: 'bold'}}>Random Quote Machine</h1>
+      <div style={{ borderTop: "1px solid black", width: "8%", marginBottom: "20px",marginTop:"10px", marginLeft:"47%" }}></div>
         <div id="text" className="mb-4">{quote}</div>
-        <div id="author" className="text-end">- {author}</div>
+        <div id="author" className="text-center">- {author}</div>
         <div className="d-flex justify-content-between mt-4">
-        <a id="tweet-quote" className="btn btn-primary" href="#" onClick={tweetQuote}>
+        <a id="tweet-quote" className="btn btn-secondary" href="#" onClick={tweetQuote}>
             Tweet Quote
           </a>
-          <button id="new-quote" className="btn btn-primary" onClick={handleNewQuote}>New Quote</button>
+          <button id="new-quote" className="btn btn-dark" onClick={handleNewQuote}>New Quote</button>
          
         </div>
       </div>
