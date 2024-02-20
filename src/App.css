@@ -1,0 +1,22 @@
+.kalam-bold {
+  font-family: "Kalam", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: large;
+}
+
+/* // <uniquifier>: Use a uniquifier for the class name
+// <weight>: Use a value from 300 to 700 */
+
+.comfortaa-quote {
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: x-large;
+  text-align: center;
+}
+
+.transition {
+  transition: opacity 5s ease-in-out;
+}
